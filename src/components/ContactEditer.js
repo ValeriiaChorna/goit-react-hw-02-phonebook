@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import T from 'prop-types';
 
 export default class ContactEditer extends Component {
+  static propTypes ={
+    onAddContact: T.func,
+  };
+
   state = {
     name: '',
     number: '',
