@@ -3,20 +3,18 @@ import T from 'prop-types';
 
 export default function ContactItem({ name, id, number, onRemoveContact }) {
   return (
-    <>
-      <li key={id} className="contactList">
-        <p>
-          {name}: {number}
-        </p>
-        <button
-          className="deleteButton"
-          type="button"
-          onClick={() => onRemoveContact(id)}
-        >
-          Delete
-        </button>
-      </li>
-    </>
+    <li key={id} className="contactList">
+      <p>
+        {name}: {number}
+      </p>
+      <button
+        className="deleteButton"
+        type="button"
+        onClick={() => onRemoveContact(id)}
+      >
+        Delete
+      </button>
+    </li>
   );
 }
 

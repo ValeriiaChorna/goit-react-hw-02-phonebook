@@ -14,13 +14,12 @@ class App extends Component {
   addContact = newContact => {
     const { name, number } = newContact;
     const { contacts } = this.state;
-    const existName = contacts.map(({ name }) => name);
     const contact = {
       id: uuid.v4(),
       name,
       number,
     };
-    if (existName.includes(name)) {
+    if (contacts.some(contact => contact.name === name)) {
       alert(`${name} is allready exist in contacts.`);
       return;
     }
@@ -65,7 +64,12 @@ class App extends Component {
             <Filter value={filter} onChangeFilter={this.changeFilter} />
           </div>
         )}
-        {visibleContact.length > 0 && <ContactList contacts={visibleContact} onRemoveContact={this.removeContact} />}
+        {visibleContact.length > 0 && (
+          <ContactList
+            contacts={visibleContact}
+            onRemoveContact={this.removeContact}
+          />
+        )}
       </Layout>
     );
   }
